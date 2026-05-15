@@ -85,7 +85,7 @@ function useIsMobile() {
   return isMobile;
 }
 
-//Sponsors
+// ─── Sponsors ──────────────────────────────────────────────────────────────────
 const SPONSORS_DATA = [
   { tier:"Title",     name:"KW Keizer Aluminium Wheels", url:"https://keizerwheels.com/",                  img:kw_img,         tagline:"Aluminium Supply Partner",               color:"#e60028" },
   { tier:"Premier",   name:"MRF",                    url:"https://www.mrftyres.com/",                      img:mrf_img,        tagline:"",                                       color:"#c8102e" },
@@ -117,7 +117,7 @@ const TIER_CONFIG = {
 };
 const TIER_ORDER = ["Title","Premier","Official","Supporting","Knowledge"];
 
-//Gold Cursor (desktop only)
+// ─── Gold Cursor (desktop only) ────────────────────────────────────────────────
 function GoldCursor({ isMobile }) {
   const dotRef = useRef(null), ringRef = useRef(null);
   const pos = useRef({x:0,y:0}), ring = useRef({x:0,y:0}), raf = useRef(null);
@@ -196,7 +196,7 @@ function SponsorStrip() {
   const items = [...SPONSORS_DATA,...SPONSORS_DATA,...SPONSORS_DATA];
   return (
     <div style={{width:"100%",background:"rgba(8,7,6,.98)",borderTop:"1px solid rgba(212,160,23,.2)",borderBottom:"1px solid rgba(212,160,23,.2)",overflow:"hidden"}}>
-      <div style={{textAlign:"center",fontSize:".5rem",letterSpacing:".55em",color:"rgba(212,160,23,.4)",textTransform:"uppercase",padding:"10px 0 4px",borderBottom:"1px solid rgba(212,160,23,.07)"}}>Our Partners &amp; Sponsors</div>
+      <div style={{textAlign:"center",fontSize:".6rem",letterSpacing:".55em",color:"rgba(212,160,23,.4)",textTransform:"uppercase",padding:"10px 0 4px",borderBottom:"1px solid rgba(212,160,23,.07)"}}>Our Partners &amp; Sponsors</div>
       <div style={{overflow:"hidden",position:"relative",height:88}}>
         <div style={{position:"absolute",left:0,top:0,bottom:0,width:40,background:"linear-gradient(to right,rgba(8,7,6,1),transparent)",zIndex:2,pointerEvents:"none"}}/>
         <div style={{position:"absolute",right:0,top:0,bottom:0,width:40,background:"linear-gradient(to left,rgba(8,7,6,1),transparent)",zIndex:2,pointerEvents:"none"}}/>
@@ -206,7 +206,7 @@ function SponsorStrip() {
               <div style={{position:"absolute",top:0,left:0,right:0,height:1,background:`linear-gradient(to right,transparent,${sp.color}66,transparent)`}}/>
               {sp.img
                 ? <img src={sp.img} alt={sp.name} style={{maxHeight:44,maxWidth:110,objectFit:"contain",filter:`drop-shadow(0 0 8px ${sp.color}55)`}}/>
-                : <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:".8rem",letterSpacing:".1em",color:sp.color}}>{sp.name}</div>}
+                : <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:".9rem",letterSpacing:".1em",color:sp.color}}>{sp.name}</div>}
             </div>
           ))}
         </div>
@@ -234,23 +234,24 @@ function Nav({ activePage, setActivePage }) {
     <nav style={{position:"fixed",top:0,left:0,height:"100vh",width:"min(320px,85vw)",background:"rgba(8,7,6,.97)",borderRight:`1px solid ${GOLD_DIM}`,zIndex:995,transform:open?"translateX(0)":"translateX(-100%)",transition:"transform .4s cubic-bezier(.4,0,.2,1)",padding:"60px 28px 40px",display:"flex",flexDirection:"column",gap:4,backdropFilter:"blur(20px)",overflowY:"auto"}}>
       <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:4}}>
         <img src={LOGO_IMG} alt="ZUURA" style={{width:36,height:36,objectFit:"contain",filter:"drop-shadow(0 0 8px rgba(212,160,23,.6))"}}/>
-        <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"1.5rem",letterSpacing:".2em",color:TEXT}}>ZUURA<span style={{color:GOLD}}> RACING</span></div>
+        <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"1.6rem",letterSpacing:".2em",color:TEXT}}>ZUURA<span style={{color:GOLD}}> RACING</span></div>
       </div>
-      <div style={{fontSize:".52rem",letterSpacing:".5em",color:MUTED,textTransform:"uppercase",marginBottom:16}}></div>
+      <div style={{fontSize:".58rem",letterSpacing:".5em",color:MUTED,textTransform:"uppercase",marginBottom:16}}></div>
       <ul style={{listStyle:"none",padding:0,margin:0,display:"flex",flexDirection:"column",gap:2,flex:1}}>
         {ALL_PAGES.map((p,i) => (
           <li key={p}>
-            <button onClick={() => { setActivePage(p); setOpen(false); }} style={{display:"flex",justifyContent:"space-between",alignItems:"center",width:"100%",padding:"11px 0",fontFamily:"'Barlow Condensed',sans-serif",fontSize:"1rem",fontWeight:600,letterSpacing:".12em",textTransform:"uppercase",color:activePage===p?GOLD:MUTED,background:"transparent",border:"none",borderBottom:`1px solid ${activePage===p?GOLD_DIM:"transparent"}`,cursor:"pointer",transition:"all .25s"}}>
+            <button onClick={() => { setActivePage(p); setOpen(false); }} style={{display:"flex",justifyContent:"space-between",alignItems:"center",width:"100%",padding:"11px 0",fontFamily:"'Barlow Condensed',sans-serif",fontSize:"1.05rem",fontWeight:600,letterSpacing:".12em",textTransform:"uppercase",color:activePage===p?GOLD:MUTED,background:"transparent",border:"none",borderBottom:`1px solid ${activePage===p?GOLD_DIM:"transparent"}`,cursor:"pointer",transition:"all .25s"}}>
               {PAGE_LABELS[i]}<span style={{opacity:activePage===p?1:0}}>▶</span>
             </button>
           </li>
         ))}
       </ul>
-      <button onClick={() => { setActivePage("contact"); setOpen(false); }} style={{marginTop:12,padding:13,background:GOLD,color:BG,fontFamily:"'Rajdhani',sans-serif",fontWeight:700,fontSize:".85rem",letterSpacing:".2em",textTransform:"uppercase",border:"none",cursor:"pointer"}}>Join The Team</button>
+      <button onClick={() => { setActivePage("contact"); setOpen(false); }} style={{marginTop:12,padding:13,background:GOLD,color:BG,fontFamily:"'Rajdhani',sans-serif",fontWeight:700,fontSize:".9rem",letterSpacing:".2em",textTransform:"uppercase",border:"none",cursor:"pointer"}}>Join The Team</button>
     </nav>
+    {/* Top-right logo pill — kept for branding on non-home pages */}
     <div style={{position:"fixed",top:20,right:16,zIndex:100,display:"flex",alignItems:"center",gap:8}}>
       <img src={LOGO_IMG} alt="ZUURA" style={{width:30,height:30,objectFit:"contain",filter:"drop-shadow(0 0 6px rgba(212,160,23,.7))"}}/>
-      <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"1rem",letterSpacing:".2em",color:TEXT}}>ZUURA <span style={{color:GOLD}}>RACING</span></div>
+      <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"1.05rem",letterSpacing:".2em",color:TEXT}}>ZUURA <span style={{color:GOLD}}>RACING</span></div>
     </div>
   </>);
 }
@@ -262,7 +263,7 @@ function Ring({ size, delay, opacity }) {
 
 function Eyebrow({ children, center }) {
   return (
-    <div style={{fontSize:".58rem",letterSpacing:".45em",color:GOLD,textTransform:"uppercase",marginBottom:16,display:"flex",alignItems:"center",gap:12,justifyContent:center?"center":"flex-start"}}>
+    <div style={{fontSize:".65rem",letterSpacing:".45em",color:GOLD,textTransform:"uppercase",marginBottom:16,display:"flex",alignItems:"center",gap:12,justifyContent:center?"center":"flex-start"}}>
       <span style={{display:"block",width:24,height:1,background:GOLD}}/>{children}
     </div>
   );
@@ -272,29 +273,29 @@ function InnerPage({ eyebrow, headline, sub, children }) {
   return (
     <div style={{position:"relative",zIndex:1,padding:"90px 5vw 70px",maxWidth:1400,margin:"0 auto"}}>
       <Eyebrow>{eyebrow}</Eyebrow>
-      <h2 style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"clamp(2rem,7vw,4.5rem)",lineHeight:.95,margin:"10px 0 16px"}}>{headline}</h2>
-      <p style={{color:MUTED,fontSize:"clamp(.8rem,.9vw,.9rem)",lineHeight:1.75,maxWidth:660,marginBottom:36}}>{sub}</p>
+      <h2 style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"clamp(2.2rem,7vw,4.8rem)",lineHeight:.95,margin:"10px 0 16px"}}>{headline}</h2>
+      <p style={{color:MUTED,fontSize:"clamp(.9rem,1vw,1rem)",lineHeight:1.75,maxWidth:660,marginBottom:36}}>{sub}</p>
       {children}
     </div>
   );
 }
 
 function GoldBtn({ children, onClick }) {
-  return <button onClick={onClick} style={{padding:"12px 26px",background:GOLD,color:BG,fontFamily:"'Rajdhani',sans-serif",fontWeight:700,fontSize:".82rem",letterSpacing:".18em",textTransform:"uppercase",border:"none",cursor:"pointer"}}>{children}</button>;
+  return <button onClick={onClick} style={{padding:"13px 28px",background:GOLD,color:BG,fontFamily:"'Rajdhani',sans-serif",fontWeight:700,fontSize:".9rem",letterSpacing:".18em",textTransform:"uppercase",border:"none",cursor:"pointer"}}>{children}</button>;
 }
 function GhostBtn({ children, onClick }) {
-  return <button onClick={onClick} style={{padding:"11px 26px",background:"transparent",color:GOLD,fontFamily:"'Rajdhani',sans-serif",fontWeight:700,fontSize:".82rem",letterSpacing:".18em",textTransform:"uppercase",border:`1px solid ${GOLD}`,cursor:"pointer"}}>{children}</button>;
+  return <button onClick={onClick} style={{padding:"12px 28px",background:"transparent",color:GOLD,fontFamily:"'Rajdhani',sans-serif",fontWeight:700,fontSize:".9rem",letterSpacing:".18em",textTransform:"uppercase",border:`1px solid ${GOLD}`,cursor:"pointer"}}>{children}</button>;
 }
 
 //Team Data
 const DEPARTMENTS = [
   { id:"board",      icon:"",   order:1, name:"Board",            tagline:"", desc:"", members:[{name:"Duggi Bhuvan Reddy",role:"Team Captain",img:img_bhuvan},{name:"Soumya Ranjan Moharana",role:"Vice Captain",img:img_sou},{name:"Arnav Mendiratta",role:"Team Manager",img:img_arnav},{name:"Isha Prajapati",role:"Deputy Team Manager",img:img_isha}] },
   { id:"aero",       icon:"💨", order:2, name:"Aerodynamics",     tagline:"Shape the Air, Shape the Lap Time", desc:"Aerodynamics Department concentrates on utilizing the flow of air to ensure that vehicles have maximum grip and speed. We have two important forces to strike a balance; create downforce to enhance cornering stability and reduce drag to maintain high-speed efficiency. We design and optimize high-performance components such as wings, diffusers and bodywork using state-of-the-art computational fluid dynamics (CFD) and precision modeling. All curves will be designed in such a way that the car will be stabilized on the track giving the driver the assurance to take the car as far as it will go. Closing the gap between fluid theory and track performance we transform air resistance to a practical competitive edge. Finally, our department will ensure that the car is attached to the tarmac, and that it offers the required traction to cut important seconds off our lap times and push the limits of automotive engineering.", members:[{name:"Soumya Porwal",role:"Aerodynamics Lead",img:img_soumya_p},{name:"Shanthanu Nitin Rege",role:"HVAC LEAD",img:img_shantanu},{name:"Shourya Sanjay Hawal",role:"",img:img_dusht},{name:"Sreeparvathi Devesh",role:"",img:img_sreeparvathi},{name:"Mohammed Shaahid M",role:"",img:img_shaahid}] },
-  { id:"chassis",    icon:"⚙️", order:3, name:"Chassis",          tagline:"The Backbone of Every Build",       desc:"Before the engine screams and the tires grip, there’s something stronger holding it all together — the chassis. Not just metal and welds, but the core of precision, control, and pure performance. Every line is calculated, every joint is intentional, built to take on forces most never see. Meet the Chassis Team — the ones who turn raw ideas into a machine that doesn’t just move, but dominates. From late-night CAD sessions to sparks flying in fabrication, this is where concepts become carbon and steel reality. Rigidity over compromise. Strength over shortcuts. Because when the car hits the track at full throttle, there’s no room for error — only trust in what’s built beneath. This isn’t just a structure. It’s the spine of speed, the cage of control, and the silent force behind every lap.", members:[{name:"Georgy Mathew",role:"Department Head",img:img_geo},{name:"Prasanna S",role:"",img:img_prasanna},{name:"Megh C Singhi",role:"",img:img_megh},{name:"Vetrivel VP",role:"",img:img_vp},{name:"Jasakaran Singh",role:"",img:img_jasi}] },
+  { id:"chassis",    icon:"⚙️", order:3, name:"Chassis",          tagline:"The Backbone of Every Build",       desc:"Before the engine screams and the tires grip, there's something stronger holding it all together — the chassis. Not just metal and welds, but the core of precision, control, and pure performance. Every line is calculated, every joint is intentional, built to take on forces most never see. Meet the Chassis Team — the ones who turn raw ideas into a machine that doesn't just move, but dominates. From late-night CAD sessions to sparks flying in fabrication, this is where concepts become carbon and steel reality. Rigidity over compromise. Strength over shortcuts. Because when the car hits the track at full throttle, there's no room for error — only trust in what's built beneath. This isn't just a structure. It's the spine of speed, the cage of control, and the silent force behind every lap.", members:[{name:"Georgy Mathew",role:"Department Head",img:img_geo},{name:"Prasanna S",role:"",img:img_prasanna},{name:"Megh C Singhi",role:"",img:img_megh},{name:"Vetrivel VP",role:"",img:img_vp},{name:"Jasakaran Singh",role:"",img:img_jasi}] },
   { id:"powertrain", icon:"🔧", order:4, name:"Drivetrain",       tagline:"Raw Power, Precisely Delivered",    desc:"The drivetrain division deals with the development of the power transfer mechanism which transfers the force produced by the engine or the motor from the source of generation to the wheel ends of the vehicle. This section of the department is vital in defining the performance and efficiency levels of the vehicles being developed. Some of the main elements under this department include transmission gears, differential gears, drive shafts, and associated components. Gear ratios and torque distribution form some of the major considerations of this division to optimize vehicle performance with regard to acceleration and maximum velocity. Drivetrain division may also collaborate with vehicle dynamics division in sports car design and development and other advanced automotive designs.", members:[{name:"Anumith M",role:"Department Head",img:img_anumith},{name:"Daksh Jain",role:"",img:img_daksh},{name:"SrengeethRakkesh R",role:"",img:img_shrengeeth},{name:"Krishna Abhinav Nippani",role:"",img:img_abhi_k}] },
   { id:"electronics",icon:"⚡", order:5, name:"Electrical",       tagline:"The Nervous System of the Car",     desc:"The electrical department is the backbone of the car. Every system on a formula EV runs through it — from the high-voltage architecture that actually drives the wheels, to the sensor networks that tell the team what the car is doing at any given moment. The team handles everything from schematic design and PCB layout to wiring, firmware, and track-side debugging. When something goes wrong during a run, it's usually electrical that figures it out first. The work is unglamorous a lot of the time — hours of continuity checks, thermal testing, and CAN bus debugging before the car ever sees the track. But it's also the department where a bad decision can either kill a lap time or fail scrutineering entirely. The electrical team doesn't just support the car; in a lot of ways, they define what it's capable of.", members:[{name:"Avaneesh",role:"Department Head",img:img_avaneesh},{name:"Ankit",role:"",img:img_ankit},{name:"Abhinav Pramod",role:"",img:img_abhi_p},{name:"Rahul U",role:"",img:img_rahul_u},{name:"Seshanth P",role:"",img:img_seshanth},{name:"Swagat Mallik",role:"",img:img_swagat},{name:"Tharun Balamurugan",role:"",img:img_tarun},{name:"K Bala Trishank",role:"",img:img_trishank},{name:"Sreeram Pichaimani",role:"",img:img_sreeram}] },
   { id:"suspension", icon:"🔩", order:6, name:"Vehicle Dynamics", tagline:"Control at Every Corner",           desc:"The Vehicle Dynamics (VD) Department in Zuura is responsible for shaping how the car behaves on track, ensuring optimal performance, stability, and control. It focuses on the design and development of suspension systems, steering geometry, and tire selection to maximize grip and responsiveness under varying conditions. The team uses simulations, data analysis, and real-world testing to fine-tune parameters such as weight distribution, damping, and kinematics. By working closely with other engineering divisions, VD ensures that vehicle characteristics align with overall design goals and competition requirements. Through a balance of analytical precision and practical validation, the department plays a key role in delivering a car that is predictable, efficient, and competitive on the track.", members:[{name:"Sumit Rohan",role:"Department Head",img:img_sumit},{name:"S. Gaurav Raghavendhar",role:"",img:img_gaurav},{name:"Sharath Atchayam",role:"",img:img_sharath},{name:"Jaishith R",role:"",img:img_jaishith},{name:"Bhaavya Sri",role:"",img:img_bhaavya}] },
-  { id:"business",   icon:"📊", order:7, name:"Management",       tagline:"The Engine Off the Track",          desc:"The Management Department in Zuura ensures the project runs smoothly beyond the technical build. It coordinates planning, budgeting, sponsorship, marketing, and team operations. This department secures funding by reaching out to sponsors, maintaining partnerships, and managing financial resources responsibly. It also handles branding and public relations, including social media strategy, content creation, and event promotion to enhance the team’s visibility. Internally, management organizes timelines, tracks progress, and facilitates communication between engineering and non-technical divisions to keep everyone aligned with goals and deadlines. Additionally, it oversees logistics such as travel, competition registrations, and documentation. By balancing organizational structure with creative outreach, the Management Department plays a critical role in ensuring the team is financially sustainable, professionally represented, and competitively prepared.", members:[{name:"Md. Irfan",role:"Department Head",img:img_irfan},{name:"Akhil Kumar",role:"",img:img_akhil},{name:"Khyati Chaturvedi",role:"",img:img_khyati},{name:"Srishtee Gupta",role:"Software",img:img_srish}] },
+  { id:"business",   icon:"📊", order:7, name:"Management",       tagline:"The Engine Off the Track",          desc:"The Management Department in Zuura ensures the project runs smoothly beyond the technical build. It coordinates planning, budgeting, sponsorship, marketing, and team operations. This department secures funding by reaching out to sponsors, maintaining partnerships, and managing financial resources responsibly. It also handles branding and public relations, including social media strategy, content creation, and event promotion to enhance the team's visibility. Internally, management organizes timelines, tracks progress, and facilitates communication between engineering and non-technical divisions to keep everyone aligned with goals and deadlines. Additionally, it oversees logistics such as travel, competition registrations, and documentation. By balancing organizational structure with creative outreach, the Management Department plays a critical role in ensuring the team is financially sustainable, professionally represented, and competitively prepared.", members:[{name:"Md. Irfan",role:"Department Head",img:img_irfan},{name:"Akhil Kumar",role:"",img:img_akhil},{name:"Khyati Chaturvedi",role:"",img:img_khyati},{name:"Srishtee Gupta",role:"Software",img:img_srish}] },
 ];
 
 //Cars
@@ -334,15 +335,51 @@ function HomePage({ setActivePage }) {
     <div style={{position:"relative",zIndex:1}}>
       {/* Hero */}
       <div style={{minHeight:"100vh",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",position:"relative",overflow:"hidden"}}>
+
+        {/*
+          ── CHANGE 1: "ZUURA Formula Racing" title block now sits ABOVE the logo ──
+          Previously this was a fixed top-right corner pill inside <Nav>.
+          Now it lives here, centred, with its own fade-in animation.
+        */}
+        <div style={{
+          display:"flex",
+          flexDirection:"column",
+          alignItems:"center",
+          gap:6,
+          marginBottom:24,
+          animation:"fadeUp .9s ease 1s both",
+          zIndex:4,
+          position:"relative",
+        }}>
+          {/* decorative top line */}
+          <div style={{width:48,height:1,background:`linear-gradient(to right,transparent,${GOLD},transparent)`,marginBottom:4}}/>
+          {/* main title */}
+          <div style={{
+            fontFamily:"'Bebas Neue',sans-serif",
+            fontSize:"clamp(1.8rem,5vw,3.2rem)",
+            letterSpacing:".22em",
+            color:TEXT,
+            lineHeight:1,
+            textAlign:"center",
+          }}>
+            ZUURA&nbsp;<span style={{color:GOLD}}>Formula Racing</span>
+          </div>
+          {/* decorative bottom line */}
+          <div style={{width:48,height:1,background:`linear-gradient(to right,transparent,${GOLD},transparent)`,marginTop:4}}/>
+        </div>
+
+        {/* Logo + rings */}
         <div style={{position:"relative",display:"flex",alignItems:"center",justifyContent:"center",width:"min(600px,90vw)",height:"min(600px,90vw)",animation:"logoPop 1.5s cubic-bezier(.22,1,.36,1) both",zIndex:2}}>
           <div style={{position:"absolute",inset:0,borderRadius:"50%",background:"radial-gradient(ellipse at center,rgba(212,160,23,.22) 0%,rgba(212,160,23,.12) 30%,rgba(212,160,23,.04) 60%,transparent 75%)",animation:"glowPulse 3s ease-in-out infinite"}}/>
           <Ring size="min(440px,74vw)" delay={1.7} opacity={0.35}/>
           <Ring size="min(560px,85vw)" delay={2}   opacity={0.18}/>
           <Ring size="min(680px,96vw)" delay={3.2} opacity={0.09}/>
-          <img src={LOGO_IMG} alt="ZUURA Racing" style={{width:"clamp(180px,40vw,380px)",height:"auto",filter:"drop-shadow(0 0 50px rgba(212,160,23,.9)) drop-shadow(0 0 120px rgba(212,160,23,.5))",animation:"logoFloat 4.5s ease-in-out 1.5s infinite",position:"relative",zIndex:3}}/>
+          <img src={LOGO_IMG} alt="ZUURA Formula Racing" style={{width:"clamp(260px,55vw,520px)",height:"auto",display:"block",margin:"0 auto",filter:"drop-shadow(0 0 50px rgba(212,160,23,.9)) drop-shadow(0 0 120px rgba(212,160,23,.5))",animation:"logoFloat 4.5s ease-in-out 1.5s infinite",position:"relative",zIndex:3}}/>
         </div>
+
+        {/* Scroll indicator */}
         <div style={{position:"absolute",bottom:28,left:"50%",transform:"translateX(-50%)",display:"flex",flexDirection:"column",alignItems:"center",gap:8,animation:"fadeUp .8s ease 2.8s both",zIndex:2}}>
-          <span style={{fontSize:".55rem",letterSpacing:".52em",color:"rgba(212,160,23,.75)",textTransform:"uppercase"}}>Scroll</span>
+          <span style={{fontSize:".6rem",letterSpacing:".52em",color:"rgba(212,160,23,.75)",textTransform:"uppercase"}}>Scroll</span>
           <div style={{width:1,height:36,background:"linear-gradient(to bottom,rgba(212,160,23,.85),transparent)",animation:"scrollPulse 1.8s ease-in-out infinite"}}/>
         </div>
       </div>
@@ -355,14 +392,14 @@ function HomePage({ setActivePage }) {
             <h1 style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"clamp(3rem,12vw,7rem)",lineHeight:.9,letterSpacing:".02em",marginBottom:24}}>
               BUILT<br/><span style={{WebkitTextStroke:"1px rgba(212,160,23,.5)",color:"transparent"}}>TO</span><br/><span style={{color:GOLD}}>RACE</span>
             </h1>
-            <p style={{maxWidth:440,fontSize:"clamp(.82rem,.9vw,.9rem)",color:MUTED,lineHeight:1.8,marginBottom:28}}>Where engineering meets ambition. ZUURA Racing is a student-run motorsport team designing and competing with formula vehicles built entirely in-house.</p>
+            <p style={{maxWidth:440,fontSize:"clamp(.9rem,1vw,1rem)",color:MUTED,lineHeight:1.8,marginBottom:28}}>Where engineering meets ambition. ZUURA Racing is a student-run motorsport team designing and competing with formula vehicles built entirely in-house.</p>
 
             {/* Stats */}
             <div style={{display:"grid",gridTemplateColumns:"repeat(2,1fr)",gap:1,marginBottom:28}}>
               {[["32+","Active Members"],["8+","Vehicles Built"],["7+","Competitions"],["4+","Awards Won"]].map(([n,l],i) => (
-                <div key={i} style={{padding:"14px 18px",border:`1px solid ${GOLD_DIM}`,background:"rgba(212,160,23,.02)"}}>
-                  <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"1.8rem",color:GOLD,lineHeight:1}}>{n}</div>
-                  <div style={{fontSize:".55rem",letterSpacing:".28em",color:MUTED,textTransform:"uppercase",marginTop:2}}>{l}</div>
+                <div key={i} style={{padding:"16px 18px",border:`1px solid ${GOLD_DIM}`,background:"rgba(212,160,23,.02)"}}>
+                  <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"2rem",color:GOLD,lineHeight:1}}>{n}</div>
+                  <div style={{fontSize:".62rem",letterSpacing:".28em",color:MUTED,textTransform:"uppercase",marginTop:2}}>{l}</div>
                 </div>
               ))}
             </div>
@@ -379,7 +416,7 @@ function HomePage({ setActivePage }) {
               <div style={{width:"100%",maxWidth:280,aspectRatio:"9/16",borderRadius:12,overflow:"hidden",border:`1px solid ${GOLD_DIM}`,boxShadow:`0 0 40px rgba(212,160,23,.12),0 24px 60px rgba(0,0,0,.7)`,background:"#111"}}>
                 <iframe title="Zuura" src="" allow="autoplay; encrypted-media; picture-in-picture" allowFullScreen style={{width:"100%",height:"100%",border:"none",display:"block"}}/>
               </div>
-              <div style={{fontSize:".55rem",letterSpacing:".4em",color:MUTED,textTransform:"uppercase"}}>ZUURA Racing in Action</div>
+              <div style={{fontSize:".62rem",letterSpacing:".4em",color:MUTED,textTransform:"uppercase"}}>ZUURA Racing in Action</div>
             </div>
           )}
         </div>
@@ -406,17 +443,15 @@ function CarsPage({ highlightCar }) {
           return (
             <div key={c.id} ref={el => cardRefs.current[c.id]=el}
               style={{display:"grid",gridTemplateColumns:isMobile?"1fr":"260px 1fr",background:isHi?"rgba(212,160,23,.07)":"rgba(255,255,255,.02)",border:isHi?`1px solid ${GOLD}`:`1px solid ${GOLD_DIM}`,boxShadow:isHi?"0 0 32px rgba(212,160,23,.25)":"none",transition:"all .4s"}}>
-              {/* Image */}
               <div style={{background:"linear-gradient(135deg,#111008,#1a1408)",display:"flex",alignItems:"center",justifyContent:"center",minHeight:isMobile?180:200,position:"relative",overflow:"hidden"}}>
                 <img src={c.img} alt={c.name} style={{width:"100%",height:"100%",objectFit:"cover",opacity:.85}}/>
                 <div style={{position:"absolute",fontFamily:"'Bebas Neue',sans-serif",fontSize:"5rem",color:"rgba(212,160,23,.13)",lineHeight:1,pointerEvents:"none"}}>{c.num}</div>
-                {isHi && <div style={{position:"absolute",top:10,left:10,padding:"3px 10px",background:GOLD,color:BG,fontSize:".5rem",letterSpacing:".3em",textTransform:"uppercase",fontWeight:700}}>🏁 Competed Here</div>}
+                {isHi && <div style={{position:"absolute",top:10,left:10,padding:"3px 10px",background:GOLD,color:BG,fontSize:".55rem",letterSpacing:".3em",textTransform:"uppercase",fontWeight:700}}>🏁 Competed Here</div>}
               </div>
-              {/* Info */}
               <div style={{padding:isMobile?"20px":"28px 32px",display:"flex",flexDirection:"column",justifyContent:"center"}}>
-                <div style={{fontSize:isMobile?".75rem":"1rem",color:GOLD,letterSpacing:".3em",marginBottom:6}}>{c.tag}</div>
-                <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"clamp(1.4rem,4vw,2rem)",letterSpacing:".06em",marginBottom:8}}>{c.name}</div>
-                <p style={{fontSize:"clamp(.78rem,.85vw,.88rem)",color:MUTED,lineHeight:1.7}}>{c.desc}</p>
+                <div style={{fontSize:isMobile?".82rem":"1.05rem",color:GOLD,letterSpacing:".3em",marginBottom:6}}>{c.tag}</div>
+                <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"clamp(1.5rem,4vw,2.1rem)",letterSpacing:".06em",marginBottom:8}}>{c.name}</div>
+                <p style={{fontSize:"clamp(.85rem,.92vw,.95rem)",color:MUTED,lineHeight:1.7}}>{c.desc}</p>
               </div>
             </div>
           );
@@ -435,11 +470,11 @@ function DepartmentsPage({ setActivePage, setTeamDept }) {
         {DEPARTMENTS.map(d => (
           <button key={d.id} onClick={() => { setTeamDept(d.id); setActivePage("team"); }}
             style={{padding:"28px 22px",border:`1px solid ${GOLD_DIM}`,background:"rgba(255,255,255,.015)",cursor:"pointer",textAlign:"left",transition:"all .3s",width:"100%",position:"relative",overflow:"hidden",outline:"none"}}>
-            <div style={{fontSize:"1.8rem",marginBottom:10}}>{d.icon}</div>
-            <div style={{fontSize:".56rem",letterSpacing:".4em",color:GOLD,textTransform:"uppercase",marginBottom:6}}>Dept {String(d.order).padStart(2,"0")}</div>
-            <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"1.15rem",letterSpacing:".08em",color:TEXT,marginBottom:8}}>{d.name}</div>
-            <p style={{fontSize:".78rem",color:MUTED,lineHeight:1.55,marginBottom:12}}>{d.tagline}</p>
-            <div style={{fontSize:".58rem",letterSpacing:".28em",color:GOLD,textTransform:"uppercase"}}>Meet The Team →</div>
+            <div style={{fontSize:"1.9rem",marginBottom:10}}>{d.icon}</div>
+            <div style={{fontSize:".62rem",letterSpacing:".4em",color:GOLD,textTransform:"uppercase",marginBottom:6}}>Dept {String(d.order).padStart(2,"0")}</div>
+            <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"1.2rem",letterSpacing:".08em",color:TEXT,marginBottom:8}}>{d.name}</div>
+            <p style={{fontSize:".85rem",color:MUTED,lineHeight:1.55,marginBottom:12}}>{d.tagline}</p>
+            <div style={{fontSize:".62rem",letterSpacing:".28em",color:GOLD,textTransform:"uppercase"}}>Meet The Team →</div>
           </button>
         ))}
       </div>
@@ -455,41 +490,38 @@ function TeamPage({ activeDept, setActiveDept }) {
     <div style={{position:"relative",zIndex:1,padding:"90px 5vw 70px",maxWidth:1400,margin:"0 auto"}}>
       <Eyebrow>05 — Team</Eyebrow>
 
-      {/* Filter tabs — horizontal scroll on mobile */}
       <div style={{display:"flex",flexWrap:isMobile?"nowrap":"wrap",gap:6,marginBottom:36,overflowX:isMobile?"auto":"visible",paddingBottom:isMobile?4:0}}>
-        <button onClick={() => setActiveDept(null)} style={{padding:"9px 18px",fontFamily:"'Barlow Condensed',sans-serif",fontWeight:600,fontSize:".82rem",letterSpacing:".12em",textTransform:"uppercase",background:!activeDept?GOLD:"transparent",color:!activeDept?BG:MUTED,border:`1px solid ${!activeDept?GOLD:GOLD_DIM}`,cursor:"pointer",transition:"all .25s",flexShrink:0,whiteSpace:"nowrap"}}>All</button>
+        <button onClick={() => setActiveDept(null)} style={{padding:"9px 18px",fontFamily:"'Barlow Condensed',sans-serif",fontWeight:600,fontSize:".88rem",letterSpacing:".12em",textTransform:"uppercase",background:!activeDept?GOLD:"transparent",color:!activeDept?BG:MUTED,border:`1px solid ${!activeDept?GOLD:GOLD_DIM}`,cursor:"pointer",transition:"all .25s",flexShrink:0,whiteSpace:"nowrap"}}>All</button>
         {DEPARTMENTS.map(d => (
-          <button key={d.id} onClick={() => setActiveDept(d.id)} style={{padding:"9px 18px",fontFamily:"'Barlow Condensed',sans-serif",fontWeight:600,fontSize:".82rem",letterSpacing:".12em",textTransform:"uppercase",background:activeDept===d.id?GOLD:"transparent",color:activeDept===d.id?BG:MUTED,border:`1px solid ${activeDept===d.id?GOLD:GOLD_DIM}`,cursor:"pointer",transition:"all .25s",flexShrink:0,whiteSpace:"nowrap",display:"flex",alignItems:"center",gap:6}}>
+          <button key={d.id} onClick={() => setActiveDept(d.id)} style={{padding:"9px 18px",fontFamily:"'Barlow Condensed',sans-serif",fontWeight:600,fontSize:".88rem",letterSpacing:".12em",textTransform:"uppercase",background:activeDept===d.id?GOLD:"transparent",color:activeDept===d.id?BG:MUTED,border:`1px solid ${activeDept===d.id?GOLD:GOLD_DIM}`,cursor:"pointer",transition:"all .25s",flexShrink:0,whiteSpace:"nowrap",display:"flex",alignItems:"center",gap:6}}>
             <span>{d.icon}</span>{d.name}
           </button>
         ))}
       </div>
 
-      {/* Dept banner */}
       {dept && (
         <div style={{border:`1px solid ${GOLD_DIM}`,padding:"24px 28px",background:"rgba(212,160,23,.03)",marginBottom:36,display:"flex",alignItems:"flex-start",gap:20,flexWrap:"wrap"}}>
           <div style={{fontSize:"2.8rem"}}>{dept.icon}</div>
           <div style={{flex:1,minWidth:200}}>
-            <div style={{fontSize:".55rem",letterSpacing:".5em",color:GOLD,textTransform:"uppercase",marginBottom:4}}>Department {String(dept.order).padStart(2,"0")}</div>
-            <h2 style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"clamp(1.5rem,4vw,2.5rem)",letterSpacing:".06em",lineHeight:1,marginBottom:6}}>{dept.name}</h2>
-            <p style={{fontSize:"clamp(.78rem,.85vw,.85rem)",color:MUTED,lineHeight:1.7,maxWidth:600}}>{dept.desc}</p>
+            <div style={{fontSize:".62rem",letterSpacing:".5em",color:GOLD,textTransform:"uppercase",marginBottom:4}}>Department {String(dept.order).padStart(2,"0")}</div>
+            <h2 style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"clamp(1.6rem,4vw,2.6rem)",letterSpacing:".06em",lineHeight:1,marginBottom:6}}>{dept.name}</h2>
+            <p style={{fontSize:"clamp(.85rem,.92vw,.92rem)",color:MUTED,lineHeight:1.7,maxWidth:600}}>{dept.desc}</p>
           </div>
         </div>
       )}
 
-      {/* Members */}
       {(dept ? [dept] : DEPARTMENTS).map(d => (
         <div key={d.id} style={{marginBottom:dept?0:52}}>
           {!dept && (
             <div style={{display:"flex",alignItems:"center",gap:16,marginBottom:20,paddingBottom:12,borderBottom:`1px solid ${GOLD_DIM}`}}>
               <span style={{fontSize:"1.6rem"}}>{d.icon}</span>
               <div>
-                <div style={{fontSize:".52rem",letterSpacing:".5em",color:GOLD,textTransform:"uppercase",marginBottom:2}}>Dept {String(d.order).padStart(2,"0")}</div>
-                <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"1.3rem",letterSpacing:".06em"}}>{d.name}</div>
+                <div style={{fontSize:".58rem",letterSpacing:".5em",color:GOLD,textTransform:"uppercase",marginBottom:2}}>Dept {String(d.order).padStart(2,"0")}</div>
+                <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"1.35rem",letterSpacing:".06em"}}>{d.name}</div>
               </div>
               <div style={{marginLeft:"auto",textAlign:"right"}}>
-                <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"1.5rem",color:GOLD,lineHeight:1}}>{d.members.length}</div>
-                <div style={{fontSize:".5rem",letterSpacing:".28em",color:MUTED,textTransform:"uppercase"}}>Members</div>
+                <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"1.6rem",color:GOLD,lineHeight:1}}>{d.members.length}</div>
+                <div style={{fontSize:".55rem",letterSpacing:".28em",color:MUTED,textTransform:"uppercase"}}>Members</div>
               </div>
             </div>
           )}
@@ -500,12 +532,12 @@ function TeamPage({ activeDept, setActiveDept }) {
                   {m.img
                     ? <img src={m.img} alt={m.name} style={{width:"100%",height:"100%",objectFit:"cover"}}/>
                     : <div style={{display:"flex",alignItems:"center",justifyContent:"center",width:"100%",height:"100%"}}><span style={{fontSize:"2rem",opacity:.3}}>👤</span></div>}
-                  {mi===0 && <div style={{position:"absolute",top:8,right:8,padding:"2px 8px",background:GOLD,color:BG,fontSize:".46rem",letterSpacing:".28em",textTransform:"uppercase",fontWeight:700}}>Lead</div>}
+                  {mi===0 && <div style={{position:"absolute",top:8,right:8,padding:"2px 8px",background:GOLD,color:BG,fontSize:".5rem",letterSpacing:".28em",textTransform:"uppercase",fontWeight:700}}>Lead</div>}
                 </div>
                 <div style={{padding:"12px 14px"}}>
-                  <div style={{fontFamily:"'Rajdhani',sans-serif",fontWeight:700,fontSize:"clamp(.88rem,2.5vw,.98rem)",color:TEXT,marginBottom:2}}>{m.name}</div>
-                  <div style={{fontSize:".58rem",letterSpacing:".28em",color:GOLD,textTransform:"uppercase"}}>{m.role}</div>
-                  <div style={{fontSize:".55rem",letterSpacing:".22em",color:MUTED,textTransform:"uppercase",marginTop:2}}>{d.name}</div>
+                  <div style={{fontFamily:"'Rajdhani',sans-serif",fontWeight:700,fontSize:"clamp(.92rem,2.5vw,1.02rem)",color:TEXT,marginBottom:2}}>{m.name}</div>
+                  <div style={{fontSize:".62rem",letterSpacing:".28em",color:GOLD,textTransform:"uppercase"}}>{m.role}</div>
+                  <div style={{fontSize:".58rem",letterSpacing:".22em",color:MUTED,textTransform:"uppercase",marginTop:2}}>{d.name}</div>
                 </div>
               </div>
             ))}
@@ -527,10 +559,10 @@ function ContestsPage() {
             onMouseEnter={e => { e.currentTarget.style.background="rgba(212,160,23,.06)"; e.currentTarget.style.borderColor=GOLD; }}
             onMouseLeave={e => { e.currentTarget.style.background="rgba(255,255,255,.02)"; e.currentTarget.style.borderColor=GOLD_DIM; }}>
             <div>
-              <div style={{fontSize:".55rem",letterSpacing:".4em",color:MUTED,textTransform:"uppercase",marginBottom:8}}>{c.type}</div>
-              <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"clamp(1.4rem,5vw,2.8rem)",letterSpacing:".06em",color:TEXT,lineHeight:1}}>{c.name}</div>
+              <div style={{fontSize:".62rem",letterSpacing:".4em",color:MUTED,textTransform:"uppercase",marginBottom:8}}>{c.type}</div>
+              <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"clamp(1.5rem,5vw,2.9rem)",letterSpacing:".06em",color:TEXT,lineHeight:1}}>{c.name}</div>
             </div>
-            <span style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"clamp(.9rem,2vw,1.1rem)",letterSpacing:".2em",color:GOLD,flexShrink:0,marginLeft:16}}>VISIT ↗</span>
+            <span style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"clamp(1rem,2vw,1.15rem)",letterSpacing:".2em",color:GOLD,flexShrink:0,marginLeft:16}}>VISIT ↗</span>
           </a>
         ))}
       </div>
@@ -544,15 +576,15 @@ function FlagshipPage() {
   return (
     <InnerPage eyebrow="06 — Flagship" headline={<>Formulathon <span style={{color:GOLD}}></span></>} sub="Our defining annual challenge.">
       <div style={{border:`1px solid ${GOLD_DIM}`,padding:"clamp(24px,5vw,44px)",borderRadius:6,background:"rgba(212,160,23,.03)",marginBottom:36,maxWidth:860}}>
-        <div style={{fontSize:".56rem",letterSpacing:".5em",color:GOLD,textTransform:"uppercase",marginBottom:8}}>Main Event · Annual</div>
-        <h3 style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"clamp(1.5rem,5vw,2.5rem)",marginBottom:10}}>VIT CHENNAI</h3>
-        <p style={{fontSize:"clamp(.8rem,.9vw,.88rem)",color:MUTED,lineHeight:1.75}}>Formulathon is ZUURA's flagship competition.</p>
+        <div style={{fontSize:".62rem",letterSpacing:".5em",color:GOLD,textTransform:"uppercase",marginBottom:8}}>Main Event · Annual</div>
+        <h3 style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"clamp(1.6rem,5vw,2.6rem)",marginBottom:10}}>VIT CHENNAI</h3>
+        <p style={{fontSize:"clamp(.88rem,.95vw,.95rem)",color:MUTED,lineHeight:1.75}}>Formulathon is ZUURA's flagship competition.</p>
       </div>
       <div style={{display:"grid",gridTemplateColumns:isMobile?"repeat(3,1fr)":"repeat(3,1fr)",border:`1px solid ${GOLD_DIM}`}}>
         {[["100+","Teams"],["2","Days"],["Top 40%","Best Finish"]].map(([v,l],i) => (
           <div key={i} style={{padding:"22px 16px",borderRight:i<2?`1px solid ${GOLD_DIM}`:"none",textAlign:"center"}}>
-            <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"clamp(1.4rem,4vw,2rem)",color:GOLD,lineHeight:1}}>{v}</div>
-            <div style={{fontSize:".55rem",letterSpacing:".28em",color:MUTED,textTransform:"uppercase",marginTop:4}}>{l}</div>
+            <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"clamp(1.5rem,4vw,2.1rem)",color:GOLD,lineHeight:1}}>{v}</div>
+            <div style={{fontSize:".6rem",letterSpacing:".28em",color:MUTED,textTransform:"uppercase",marginTop:4}}>{l}</div>
           </div>
         ))}
       </div>
@@ -573,11 +605,10 @@ function HistoryPage() {
     { year:"2019", title:"FSAE-AUSTRALASIA",    desc:"ZFR-07: Special Appreciation Award, 13th rank." },
     { year:"2022", title:"FFS-INDIA",           desc:"ZFR-07: 2nd Design Evaluation, 5th overall." },
     { year:"2023", title:"Formula Imperial",    desc:"ZFR-08: 1st Business Plan, 3rd CVs, 7th overall." },
-    { year:"2024", title:"Supra SAE & FMAE FFS INDIA",     desc:"Secured 22nd rank in Supra SAE and 2nd rank in FMAE FFS INIDA." },
+    { year:"2024", title:"Supra SAE & FMAE FFS INDIA", desc:"Secured 22nd rank in Supra SAE and 2nd rank in FMAE FFS INDIA." },
   ];
 
   if (isMobile) {
-    // Mobile: simple vertical timeline
     return (
       <InnerPage eyebrow="07 — History" headline={<>Our <span style={{color:GOLD}}>Journey</span></>} sub="From a sketch on a whiteboard to the national stage.">
         <div style={{position:"relative",paddingLeft:32,marginTop:16}}>
@@ -585,9 +616,9 @@ function HistoryPage() {
           {items.map((item,i) => (
             <div key={i} style={{position:"relative",marginBottom:28}}>
               <div style={{position:"absolute",left:-20,top:6,width:10,height:10,borderRadius:"50%",background:GOLD,border:`2px solid ${BG}`,boxShadow:`0 0 8px rgba(212,160,23,.7)`}}/>
-              <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"1.5rem",color:GOLD,lineHeight:1}}>{item.year}</div>
-              <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:".95rem",letterSpacing:".06em",marginBottom:4}}>{item.title}</div>
-              <p style={{fontSize:".78rem",color:MUTED,lineHeight:1.6}}>{item.desc}</p>
+              <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"1.6rem",color:GOLD,lineHeight:1}}>{item.year}</div>
+              <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"1rem",letterSpacing:".06em",marginBottom:4}}>{item.title}</div>
+              <p style={{fontSize:".85rem",color:MUTED,lineHeight:1.6}}>{item.desc}</p>
             </div>
           ))}
         </div>
@@ -595,7 +626,6 @@ function HistoryPage() {
     );
   }
 
-  // Desktop: alternating timeline
   return (
     <InnerPage eyebrow="07 — History" headline={<>Our <span style={{color:GOLD}}>Journey</span></>} sub="From a sketch on a whiteboard to the national stage.">
       <div style={{position:"relative",maxWidth:800,margin:"32px auto 0",padding:"0 16px"}}>
@@ -605,19 +635,19 @@ function HistoryPage() {
           return (
             <div key={i} style={{display:"grid",gridTemplateColumns:"1fr 20px 1fr",gap:20,alignItems:"center",marginBottom:36}}>
               {left ? (<>
-                <div style={{textAlign:"right"}}><div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"2rem",color:GOLD}}>{item.year}</div></div>
+                <div style={{textAlign:"right"}}><div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"2.1rem",color:GOLD}}>{item.year}</div></div>
                 <div style={{width:10,height:10,borderRadius:"50%",background:GOLD,border:`2px solid ${BG}`,boxShadow:`0 0 10px rgba(212,160,23,.7)`,justifySelf:"center"}}/>
                 <div style={{background:"rgba(212,160,23,.03)",border:`1px solid ${GOLD_DIM}`,borderRadius:4,padding:"14px 18px"}}>
-                  <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"1rem",letterSpacing:".06em",marginBottom:4}}>{item.title}</div>
-                  <p style={{fontSize:".8rem",color:MUTED,lineHeight:1.6}}>{item.desc}</p>
+                  <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"1.05rem",letterSpacing:".06em",marginBottom:4}}>{item.title}</div>
+                  <p style={{fontSize:".88rem",color:MUTED,lineHeight:1.6}}>{item.desc}</p>
                 </div>
               </>) : (<>
                 <div style={{background:"rgba(212,160,23,.03)",border:`1px solid ${GOLD_DIM}`,borderRadius:4,padding:"14px 18px",textAlign:"right"}}>
-                  <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"1rem",letterSpacing:".06em",marginBottom:4}}>{item.title}</div>
-                  <p style={{fontSize:".8rem",color:MUTED,lineHeight:1.6}}>{item.desc}</p>
+                  <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"1.05rem",letterSpacing:".06em",marginBottom:4}}>{item.title}</div>
+                  <p style={{fontSize:".88rem",color:MUTED,lineHeight:1.6}}>{item.desc}</p>
                 </div>
                 <div style={{width:10,height:10,borderRadius:"50%",background:GOLD,border:`2px solid ${BG}`,boxShadow:`0 0 10px rgba(212,160,23,.7)`,justifySelf:"center"}}/>
-                <div style={{textAlign:"left"}}><div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"2rem",color:GOLD}}>{item.year}</div></div>
+                <div style={{textAlign:"left"}}><div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"2.1rem",color:GOLD}}>{item.year}</div></div>
               </>)}
             </div>
           );
@@ -627,7 +657,7 @@ function HistoryPage() {
   );
 }
 
-//News
+//News/
 function NewsPage() {
   const isMobile = useIsMobile();
   const [selected, setSelected] = useState(null);
@@ -639,25 +669,24 @@ function NewsPage() {
     const n = NEWS_ITEMS.find(x => x.id===selected);
     return (
       <div style={{position:"relative",zIndex:1,padding:"90px 5vw 70px",maxWidth:860,margin:"0 auto"}}>
-        <button onClick={() => setSelected(null)} style={{display:"flex",alignItems:"center",gap:8,background:"transparent",border:"none",color:GOLD,fontSize:".72rem",letterSpacing:".3em",textTransform:"uppercase",cursor:"pointer",marginBottom:32,padding:0}}>← Back to News</button>
-        <div style={{fontSize:".56rem",letterSpacing:".5em",color:GOLD,textTransform:"uppercase",marginBottom:10,display:"flex",alignItems:"center",gap:10}}>
+        <button onClick={() => setSelected(null)} style={{display:"flex",alignItems:"center",gap:8,background:"transparent",border:"none",color:GOLD,fontSize:".78rem",letterSpacing:".3em",textTransform:"uppercase",cursor:"pointer",marginBottom:32,padding:0}}>← Back to News</button>
+        <div style={{fontSize:".62rem",letterSpacing:".5em",color:GOLD,textTransform:"uppercase",marginBottom:10,display:"flex",alignItems:"center",gap:10}}>
           <span style={{padding:"3px 10px",background:GOLD_DIM,color:GOLD}}>{n.category}</span>
           <span style={{color:MUTED}}>{n.date}</span>
         </div>
-        <h1 style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"clamp(1.8rem,6vw,3.5rem)",lineHeight:1,marginBottom:20}}>{n.title}</h1>
+        <h1 style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"clamp(1.9rem,6vw,3.6rem)",lineHeight:1,marginBottom:20}}>{n.title}</h1>
         <div style={{width:48,height:2,background:GOLD,marginBottom:24}}/>
-        <p style={{fontSize:"clamp(.9rem,1vw,1rem)",color:TEXT,lineHeight:1.85,marginBottom:20}}>{n.summary}</p>
-        <p style={{fontSize:"clamp(.82rem,.9vw,.9rem)",color:MUTED,lineHeight:1.85}}>{n.detail}</p>
+        <p style={{fontSize:"clamp(.95rem,1.05vw,1.05rem)",color:TEXT,lineHeight:1.85,marginBottom:20}}>{n.summary}</p>
+        <p style={{fontSize:"clamp(.88rem,.95vw,.95rem)",color:MUTED,lineHeight:1.85}}>{n.detail}</p>
       </div>
     );
   }
 
   return (
     <InnerPage eyebrow="08 — News" headline={<>Latest <span style={{color:GOLD}}>Updates</span></>} sub="Announcements, results, recruitment drives and everything happening at ZUURA Racing.">
-      {/* Filter tabs */}
       <div style={{display:"flex",flexWrap:isMobile?"nowrap":"wrap",gap:6,marginBottom:28,overflowX:isMobile?"auto":"visible",paddingBottom:isMobile?4:0}}>
         {cats.map(cat => (
-          <button key={cat} onClick={() => setFilter(cat)} style={{padding:"8px 16px",fontFamily:"'Barlow Condensed',sans-serif",fontWeight:600,fontSize:".78rem",letterSpacing:".12em",textTransform:"uppercase",background:filter===cat?GOLD:"transparent",color:filter===cat?BG:MUTED,border:`1px solid ${filter===cat?GOLD:GOLD_DIM}`,cursor:"pointer",transition:"all .25s",flexShrink:0,whiteSpace:"nowrap"}}>{cat}</button>
+          <button key={cat} onClick={() => setFilter(cat)} style={{padding:"8px 16px",fontFamily:"'Barlow Condensed',sans-serif",fontWeight:600,fontSize:".85rem",letterSpacing:".12em",textTransform:"uppercase",background:filter===cat?GOLD:"transparent",color:filter===cat?BG:MUTED,border:`1px solid ${filter===cat?GOLD:GOLD_DIM}`,cursor:"pointer",transition:"all .25s",flexShrink:0,whiteSpace:"nowrap"}}>{cat}</button>
         ))}
       </div>
 
@@ -665,17 +694,17 @@ function NewsPage() {
         {filtered.map(n => (
           <button key={n.id} onClick={() => setSelected(n.id)} style={{border:`1px solid ${GOLD_DIM}`,background:"rgba(255,255,255,.02)",padding:0,cursor:"pointer",textAlign:"left",outline:"none",display:"flex",flexDirection:"column"}}>
             <div style={{padding:"12px 16px",background:"rgba(212,160,23,.05)",borderBottom:`1px solid ${GOLD_DIM}`,display:"flex",alignItems:"center",gap:10}}>
-              <span style={{fontSize:"1.4rem"}}>{n.icon}</span>
+              <span style={{fontSize:"1.5rem"}}>{n.icon}</span>
               <div>
-                <div style={{fontSize:".5rem",letterSpacing:".4em",color:GOLD,textTransform:"uppercase"}}>{n.category}</div>
-                <div style={{fontSize:".5rem",letterSpacing:".28em",color:MUTED,textTransform:"uppercase"}}>{n.date}</div>
+                <div style={{fontSize:".56rem",letterSpacing:".4em",color:GOLD,textTransform:"uppercase"}}>{n.category}</div>
+                <div style={{fontSize:".56rem",letterSpacing:".28em",color:MUTED,textTransform:"uppercase"}}>{n.date}</div>
               </div>
-              <span style={{marginLeft:"auto",padding:"2px 8px",fontSize:".48rem",letterSpacing:".32em",textTransform:"uppercase",color:n.tagColor,border:`1px solid ${n.tagColor}`,opacity:.85,flexShrink:0}}>{n.tag}</span>
+              <span style={{marginLeft:"auto",padding:"2px 8px",fontSize:".52rem",letterSpacing:".32em",textTransform:"uppercase",color:n.tagColor,border:`1px solid ${n.tagColor}`,opacity:.85,flexShrink:0}}>{n.tag}</span>
             </div>
             <div style={{padding:"16px 18px 20px",flex:1,display:"flex",flexDirection:"column"}}>
-              <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"clamp(1rem,3vw,1.2rem)",letterSpacing:".05em",marginBottom:8,lineHeight:1.15}}>{n.title}</div>
-              <p style={{fontSize:"clamp(.76rem,.82vw,.82rem)",color:MUTED,lineHeight:1.65,flex:1}}>{n.summary}</p>
-              <div style={{marginTop:12,fontSize:".56rem",letterSpacing:".28em",color:GOLD,textTransform:"uppercase"}}>Read More →</div>
+              <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"clamp(1.05rem,3vw,1.25rem)",letterSpacing:".05em",marginBottom:8,lineHeight:1.15}}>{n.title}</div>
+              <p style={{fontSize:"clamp(.82rem,.88vw,.88rem)",color:MUTED,lineHeight:1.65,flex:1}}>{n.summary}</p>
+              <div style={{marginTop:12,fontSize:".62rem",letterSpacing:".28em",color:GOLD,textTransform:"uppercase"}}>Read More →</div>
             </div>
           </button>
         ))}
@@ -690,8 +719,8 @@ function SponsorsPage() {
   return (
     <div style={{position:"relative",zIndex:1,padding:"90px 5vw 0",maxWidth:1400,margin:"0 auto"}}>
       <Eyebrow>09 — Sponsors</Eyebrow>
-      <h2 style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"clamp(2rem,7vw,4.5rem)",lineHeight:.95,margin:"10px 0 16px"}}>Our <span style={{color:GOLD}}>Partners</span></h2>
-      <p style={{color:MUTED,fontSize:"clamp(.8rem,.9vw,.9rem)",lineHeight:1.75,maxWidth:660,marginBottom:48}}>ZUURA Racing exists because of the extraordinary support of our sponsors.</p>
+      <h2 style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"clamp(2.2rem,7vw,4.8rem)",lineHeight:.95,margin:"10px 0 16px"}}>Our <span style={{color:GOLD}}>Partners</span></h2>
+      <p style={{color:MUTED,fontSize:"clamp(.9rem,1vw,1rem)",lineHeight:1.75,maxWidth:660,marginBottom:48}}>ZUURA Racing exists because of the extraordinary support of our sponsors.</p>
 
       {TIER_ORDER.map(tier => {
         const tc = TIER_CONFIG[tier];
@@ -701,7 +730,7 @@ function SponsorsPage() {
           <div key={tier} style={{marginBottom:56}}>
             <div style={{display:"flex",alignItems:"center",gap:16,marginBottom:24}}>
               <div style={{flex:1,height:1,background:`linear-gradient(to right,${tc.accent},transparent)`}}/>
-              <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"1rem",letterSpacing:".28em",color:tc.accent,textTransform:"uppercase",whiteSpace:"nowrap",padding:"0 6px"}}>{tc.label}</div>
+              <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"1.05rem",letterSpacing:".28em",color:tc.accent,textTransform:"uppercase",whiteSpace:"nowrap",padding:"0 6px"}}>{tc.label}</div>
               <div style={{flex:1,height:1,background:`linear-gradient(to left,${tc.accent},transparent)`}}/>
             </div>
             <div style={{display:"grid",gridTemplateColumns:`repeat(${cols},1fr)`,gap:12}}>
@@ -712,14 +741,14 @@ function SponsorsPage() {
                   <div style={{flex:1,display:"flex",alignItems:"center",justifyContent:"center",padding:"20px 16px",minHeight:isMobile?80:tc.cardH,background:"linear-gradient(135deg,rgba(255,255,255,.02),rgba(255,255,255,.005))"}}>
                     {sp.img
                       ? <img src={sp.img} alt={sp.name} style={{maxHeight:isMobile?44:60,maxWidth:"100%",objectFit:"contain",filter:`drop-shadow(0 0 10px ${sp.color}55)`}}/>
-                      : <div style={{textAlign:"center",fontFamily:"'Bebas Neue',sans-serif",fontSize:"1.1rem",color:sp.color}}>{sp.name}</div>}
+                      : <div style={{textAlign:"center",fontFamily:"'Bebas Neue',sans-serif",fontSize:"1.15rem",color:sp.color}}>{sp.name}</div>}
                   </div>
                   <div style={{borderTop:`1px solid rgba(212,160,23,.1)`,padding:"10px 14px",background:"rgba(8,7,6,.6)",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
                     <div>
-                      <div style={{fontFamily:"'Rajdhani',sans-serif",fontWeight:700,fontSize:"clamp(.78rem,.88vw,.88rem)",color:TEXT,lineHeight:1.2}}>{sp.name}</div>
-                      {sp.tagline && <div style={{fontSize:".52rem",letterSpacing:".22em",color:MUTED,textTransform:"uppercase",marginTop:2}}>{sp.tagline}</div>}
+                      <div style={{fontFamily:"'Rajdhani',sans-serif",fontWeight:700,fontSize:"clamp(.85rem,.92vw,.92rem)",color:TEXT,lineHeight:1.2}}>{sp.name}</div>
+                      {sp.tagline && <div style={{fontSize:".58rem",letterSpacing:".22em",color:MUTED,textTransform:"uppercase",marginTop:2}}>{sp.tagline}</div>}
                     </div>
-                    <div style={{fontSize:".7rem",color:sp.color,opacity:.7}}>↗</div>
+                    <div style={{fontSize:".75rem",color:sp.color,opacity:.7}}>↗</div>
                   </div>
                 </a>
               ))}
@@ -728,26 +757,24 @@ function SponsorsPage() {
         );
       })}
 
-      {/* Stats row */}
       <div style={{display:"grid",gridTemplateColumns:isMobile?"repeat(3,1fr)":"repeat(6,1fr)",border:`1px solid ${GOLD_DIM}`,marginBottom:60}}>
         {[["19","Total"],["1","Title"],["4","Premier"],["6","Official"],["5","Supporting"],["3","Knowledge"]].map(([v,l],i) => (
           <div key={i} style={{padding:"18px 10px",borderRight:i<5?`1px solid ${GOLD_DIM}`:"none",borderBottom:isMobile&&i<3?`1px solid ${GOLD_DIM}`:"none",textAlign:"center"}}>
-            <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"1.6rem",color:GOLD,lineHeight:1}}>{v}</div>
-            <div style={{fontSize:".5rem",letterSpacing:".25em",color:MUTED,textTransform:"uppercase",marginTop:3}}>{l}</div>
+            <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"1.7rem",color:GOLD,lineHeight:1}}>{v}</div>
+            <div style={{fontSize:".56rem",letterSpacing:".25em",color:MUTED,textTransform:"uppercase",marginTop:3}}>{l}</div>
           </div>
         ))}
       </div>
 
-      {/* Thank you */}
       <div style={{position:"relative",padding:"clamp(32px,6vw,60px)",marginBottom:0,background:"linear-gradient(135deg,rgba(212,160,23,.06),rgba(212,160,23,.02),rgba(212,160,23,.06))",border:`1px solid ${GOLD_DIM}`,overflow:"hidden"}}>
         <div style={{position:"relative",zIndex:1,textAlign:"center",maxWidth:800,margin:"0 auto"}}>
           <img src={LOGO_IMG} alt="ZUURA" style={{width:60,height:60,objectFit:"contain",filter:"drop-shadow(0 0 20px rgba(212,160,23,.7))",marginBottom:20}}/>
-          <h3 style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"clamp(1.6rem,5vw,3.5rem)",letterSpacing:".06em",lineHeight:.95,marginBottom:24}}>Thank You To Our <span style={{color:GOLD}}>Supporters</span></h3>
-          <p style={{fontSize:"clamp(.82rem,.9vw,.9rem)",color:MUTED,lineHeight:1.85}}>Every lap we run, every component we design — none of it would be possible without our partners. You are part of the ZUURA family.</p>
+          <h3 style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"clamp(1.7rem,5vw,3.6rem)",letterSpacing:".06em",lineHeight:.95,marginBottom:24}}>Thank You To Our <span style={{color:GOLD}}>Supporters</span></h3>
+          <p style={{fontSize:"clamp(.88rem,.95vw,.95rem)",color:MUTED,lineHeight:1.85}}>Every lap we run, every component we design — none of it would be possible without our partners. You are part of the ZUURA family.</p>
           <div style={{marginTop:32,display:"flex",flexDirection:"column",alignItems:"center",gap:8}}>
             <div style={{width:1,height:32,background:`linear-gradient(to bottom,${GOLD},transparent)`}}/>
-            <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"1.2rem",letterSpacing:".25em",color:GOLD}}>ZUURA Racing</div>
-            <div style={{fontSize:".56rem",letterSpacing:".4em",color:MUTED,textTransform:"uppercase"}}>Est. 2013</div>
+            <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"1.25rem",letterSpacing:".25em",color:GOLD}}>ZUURA Racing</div>
+            <div style={{fontSize:".62rem",letterSpacing:".4em",color:MUTED,textTransform:"uppercase"}}>Est. 2013</div>
           </div>
         </div>
       </div>
@@ -762,14 +789,13 @@ function ContactPage() {
   const [sent, setSent] = useState(false);
   const handle = e => setForm(f => ({...f,[e.target.name]:e.target.value}));
   const submit = () => { setSent(true); setTimeout(() => setSent(false),3500); };
-  const inp = {background:"rgba(255,255,255,.04)",border:`1px solid ${GOLD_DIM}`,padding:"12px 16px",color:TEXT,fontFamily:"'Rajdhani',sans-serif",fontSize:"clamp(.82rem,.9vw,.9rem)",outline:"none",width:"100%",boxSizing:"border-box",transition:"border-color .25s"};
+  const inp = {background:"rgba(255,255,255,.04)",border:`1px solid ${GOLD_DIM}`,padding:"12px 16px",color:TEXT,fontFamily:"'Rajdhani',sans-serif",fontSize:"clamp(.88rem,.95vw,.95rem)",outline:"none",width:"100%",boxSizing:"border-box",transition:"border-color .25s"};
 
   return (
     <div style={{position:"relative",zIndex:1,padding:"90px 5vw 70px",maxWidth:1400,margin:"0 auto"}}>
       <Eyebrow>10 — Contact</Eyebrow>
-      <h2 style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"clamp(2rem,7vw,4.5rem)",lineHeight:.95,margin:"10px 0 36px"}}>Get In <span style={{color:GOLD}}>Touch</span></h2>
+      <h2 style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"clamp(2.2rem,7vw,4.8rem)",lineHeight:.95,margin:"10px 0 36px"}}>Get In <span style={{color:GOLD}}>Touch</span></h2>
 
-      {/* Info cards */}
       <div style={{display:"grid",gridTemplateColumns:isMobile?"1fr":"repeat(3,1fr)",gap:1,marginBottom:36}}>
         {[
           {icon:"📧",label:"Email Us",     val:"admin@zuuraracing.com", sub:""},
@@ -777,10 +803,10 @@ function ContactPage() {
           {icon:"📱",label:"Social Media", val:"",                      sub:"Instagram · LinkedIn · YouTube"},
         ].map(({icon,label,val,sub},i) => (
           <div key={i} style={{padding:"24px 24px",border:`1px solid ${GOLD_DIM}`,background:"rgba(255,255,255,.02)",display:"flex",flexDirection:"column",gap:8}}>
-            <span style={{fontSize:"1.6rem"}}>{icon}</span>
-            <div style={{fontSize:".56rem",letterSpacing:".42em",color:GOLD,textTransform:"uppercase"}}>{label}</div>
-            <div style={{fontFamily:"'Rajdhani',sans-serif",fontWeight:700,fontSize:"clamp(.88rem,1vw,.95rem)",color:TEXT}}>{val}</div>
-            <div style={{fontSize:".75rem",color:MUTED}}>{sub}</div>
+            <span style={{fontSize:"1.7rem"}}>{icon}</span>
+            <div style={{fontSize:".62rem",letterSpacing:".42em",color:GOLD,textTransform:"uppercase"}}>{label}</div>
+            <div style={{fontFamily:"'Rajdhani',sans-serif",fontWeight:700,fontSize:"clamp(.92rem,1.05vw,1rem)",color:TEXT}}>{val}</div>
+            <div style={{fontSize:".82rem",color:MUTED}}>{sub}</div>
             {label==="Social Media" && (
               <div style={{display:"flex",gap:12,marginTop:4}}>
                 <a href="https://www.instagram.com/zuuraformularacing/" target="_blank" rel="noopener noreferrer"><img src={ig} alt="Instagram" style={{width:30}}/></a>
@@ -793,10 +819,9 @@ function ContactPage() {
       </div>
 
       <div style={{display:"grid",gridTemplateColumns:isMobile?"1fr":"1.5fr 1fr",gap:32,alignItems:"start"}}>
-        {/* Form */}
         <div style={{border:`1px solid ${GOLD_DIM}`,padding:"clamp(24px,5vw,40px)",background:"rgba(255,255,255,.015)"}}>
-          <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"clamp(1.3rem,3vw,1.5rem)",letterSpacing:".1em",marginBottom:6}}>Send Us A Message</div>
-          <p style={{fontSize:"clamp(.78rem,.85vw,.82rem)",color:MUTED,marginBottom:24,lineHeight:1.6}}>Whether joining, sponsoring or collaborating — we'll get back to you.</p>
+          <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"clamp(1.4rem,3vw,1.6rem)",letterSpacing:".1em",marginBottom:6}}>Send Us A Message</div>
+          <p style={{fontSize:"clamp(.85rem,.9vw,.88rem)",color:MUTED,marginBottom:24,lineHeight:1.6}}>Whether joining, sponsoring or collaborating — we'll get back to you.</p>
           <div style={{display:"grid",gridTemplateColumns:isMobile?"1fr":"1fr 1fr",gap:10,marginBottom:10}}>
             <input name="name"  value={form.name}  onChange={handle} placeholder="Full Name *"      style={inp}/>
             <input name="email" value={form.email} onChange={handle} placeholder="Email Address *"  style={inp}/>
@@ -813,20 +838,19 @@ function ContactPage() {
             </select>
           </div>
           <textarea name="message" value={form.message} onChange={handle} placeholder="Your Message *" rows={5} style={{...inp,resize:"vertical",marginBottom:14}}/>
-          <button onClick={submit} style={{width:"100%",padding:14,background:sent?"#2a8a3e":GOLD,color:BG,fontFamily:"'Rajdhani',sans-serif",fontWeight:700,fontSize:"clamp(.82rem,.9vw,.9rem)",letterSpacing:".2em",textTransform:"uppercase",border:"none",cursor:"pointer",transition:"background .3s"}}>
+          <button onClick={submit} style={{width:"100%",padding:14,background:sent?"#2a8a3e":GOLD,color:BG,fontFamily:"'Rajdhani',sans-serif",fontWeight:700,fontSize:"clamp(.88rem,.95vw,.95rem)",letterSpacing:".2em",textTransform:"uppercase",border:"none",cursor:"pointer",transition:"background .3s"}}>
             {sent ? "✓ Message Sent!" : "Send Message →"}
           </button>
         </div>
 
-        {/* Sidebar */}
         <div style={{display:"flex",flexDirection:"column",gap:20}}>
           <div style={{border:`1px solid ${GOLD_DIM}`,padding:"24px 24px",background:"rgba(212,160,23,.03)",display:"flex",flexDirection:"column",alignItems:"center",textAlign:"center",gap:12}}>
             <img src={LOGO_IMG} alt="ZUURA" style={{width:64,height:64,objectFit:"contain",filter:"drop-shadow(0 0 20px rgba(212,160,23,.8))"}}/>
-            <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"1.5rem",letterSpacing:".15em"}}>ZUURA <span style={{color:GOLD}}>RACING</span></div>
-            <p style={{fontSize:".8rem",color:MUTED,lineHeight:1.7}}>"We don't just build cars. We build engineers."</p>
+            <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"1.6rem",letterSpacing:".15em"}}>ZUURA <span style={{color:GOLD}}>RACING</span></div>
+            <p style={{fontSize:".88rem",color:MUTED,lineHeight:1.7}}>"We don't just build cars. We build engineers."</p>
           </div>
           <div style={{border:`1px solid ${GOLD_DIM}`,padding:"22px 24px",background:"rgba(255,255,255,.015)"}}>
-            <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"1.1rem",letterSpacing:".1em",marginBottom:16,color:GOLD}}>FAQ</div>
+            <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"1.15rem",letterSpacing:".1em",marginBottom:16,color:GOLD}}>FAQ</div>
             {[
               ["When can I join?","Applications open each February and August."],
               ["Do I need experience?","No! Drive to learn is what matters."],
@@ -834,8 +858,8 @@ function ContactPage() {
               ["Can companies sponsor?","Yes — contact us with 'Sponsorship Inquiry'."],
             ].map(([q,a],i) => (
               <div key={i} style={{paddingBottom:12,marginBottom:12,borderBottom:i<3?`1px solid ${GOLD_DIM}`:"none"}}>
-                <div style={{fontFamily:"'Rajdhani',sans-serif",fontWeight:700,fontSize:"clamp(.82rem,.9vw,.88rem)",color:TEXT,marginBottom:3}}>{q}</div>
-                <p style={{fontSize:"clamp(.74rem,.8vw,.78rem)",color:MUTED,lineHeight:1.6}}>{a}</p>
+                <div style={{fontFamily:"'Rajdhani',sans-serif",fontWeight:700,fontSize:"clamp(.88rem,.95vw,.92rem)",color:TEXT,marginBottom:3}}>{q}</div>
+                <p style={{fontSize:"clamp(.8rem,.85vw,.84rem)",color:MUTED,lineHeight:1.6}}>{a}</p>
               </div>
             ))}
           </div>
@@ -861,9 +885,9 @@ function Footer({ setActivePage }) {
           <div>
             <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:8}}>
               <img src={LOGO_IMG} alt="ZUURA" style={{width:34,height:34,objectFit:"contain",filter:"drop-shadow(0 0 8px rgba(212,160,23,.6))"}}/>
-              <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"1.3rem",letterSpacing:".2em"}}>ZUURA <span style={{color:GOLD}}>RACING</span></div>
+              <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:"1.4rem",letterSpacing:".2em"}}>ZUURA <span style={{color:GOLD}}>RACING</span></div>
             </div>
-            <p style={{fontSize:"clamp(.76rem,.82vw,.8rem)",color:MUTED,lineHeight:1.6,marginBottom:16,maxWidth:280}}>Student-run formula racing team. Engineering excellence — on and off the track.</p>
+            <p style={{fontSize:"clamp(.82rem,.88vw,.86rem)",color:MUTED,lineHeight:1.6,marginBottom:16,maxWidth:280}}>Student-run formula racing team. Engineering excellence — on and off the track.</p>
             <div style={{display:"flex",gap:10}}>
               <a href="https://www.instagram.com/zuuraformularacing/" target="_blank" rel="noopener noreferrer"><img src={ig} alt="Instagram" style={{width:28}}/></a>
               <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><img src={li} alt="LinkedIn"  style={{width:28}}/></a>
@@ -872,10 +896,10 @@ function Footer({ setActivePage }) {
           </div>
           {!isMobile && NAV_GROUPS.map(({title,links}) => (
             <div key={title}>
-              <div style={{fontSize:".56rem",letterSpacing:".42em",color:GOLD,textTransform:"uppercase",marginBottom:14}}>{title}</div>
+              <div style={{fontSize:".62rem",letterSpacing:".42em",color:GOLD,textTransform:"uppercase",marginBottom:14}}>{title}</div>
               <ul style={{listStyle:"none",padding:0,margin:0,display:"flex",flexDirection:"column",gap:8}}>
                 {links.map(({label,page}) => (
-                  <li key={label}><button onClick={() => setActivePage(page)} style={{background:"none",border:"none",padding:0,fontSize:".8rem",color:MUTED,cursor:"pointer",textAlign:"left"}} onMouseEnter={e=>e.currentTarget.style.color=GOLD} onMouseLeave={e=>e.currentTarget.style.color=MUTED}>{label}</button></li>
+                  <li key={label}><button onClick={() => setActivePage(page)} style={{background:"none",border:"none",padding:0,fontSize:".86rem",color:MUTED,cursor:"pointer",textAlign:"left"}} onMouseEnter={e=>e.currentTarget.style.color=GOLD} onMouseLeave={e=>e.currentTarget.style.color=MUTED}>{label}</button></li>
                 ))}
               </ul>
             </div>
@@ -884,10 +908,10 @@ function Footer({ setActivePage }) {
             <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:24}}>
               {NAV_GROUPS.map(({title,links}) => (
                 <div key={title}>
-                  <div style={{fontSize:".52rem",letterSpacing:".38em",color:GOLD,textTransform:"uppercase",marginBottom:10}}>{title}</div>
+                  <div style={{fontSize:".58rem",letterSpacing:".38em",color:GOLD,textTransform:"uppercase",marginBottom:10}}>{title}</div>
                   <ul style={{listStyle:"none",padding:0,margin:0,display:"flex",flexDirection:"column",gap:7}}>
                     {links.map(({label,page}) => (
-                      <li key={label}><button onClick={() => setActivePage(page)} style={{background:"none",border:"none",padding:0,fontSize:".78rem",color:MUTED,cursor:"pointer",textAlign:"left"}}>{label}</button></li>
+                      <li key={label}><button onClick={() => setActivePage(page)} style={{background:"none",border:"none",padding:0,fontSize:".84rem",color:MUTED,cursor:"pointer",textAlign:"left"}}>{label}</button></li>
                     ))}
                   </ul>
                 </div>
@@ -896,9 +920,9 @@ function Footer({ setActivePage }) {
           )}
         </div>
         <div style={{display:"flex",flexWrap:"wrap",justifyContent:"space-between",alignItems:"center",gap:12,paddingTop:20,borderTop:`1px solid ${GOLD_DIM}`}}>
-          <span style={{fontSize:".68rem",color:"rgba(232,224,208,.25)"}}>© ZUURA Racing. All rights reserved.</span>
+          <span style={{fontSize:".72rem",color:"rgba(232,224,208,.25)"}}>by Srishtee Gupta; © ZUURA Racing. All rights reserved.</span>
           <div style={{display:"flex",gap:20}}>
-            {["Privacy","Terms","Media"].map(l => <button key={l} onClick={() => setActivePage("contact")} style={{background:"none",border:"none",fontSize:".68rem",color:"rgba(232,224,208,.25)",cursor:"pointer",padding:0}}>{l}</button>)}
+            {["Privacy","Terms","Media"].map(l => <button key={l} onClick={() => setActivePage("contact")} style={{background:"none",border:"none",fontSize:".72rem",color:"rgba(232,224,208,.25)",cursor:"pointer",padding:0}}>{l}</button>)}
           </div>
         </div>
       </div>
@@ -906,8 +930,7 @@ function Footer({ setActivePage }) {
   );
 }
 
-
-// CSS
+//CSS
 const STYLE = `
   @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600;700&family=Barlow+Condensed:wght@300;600;700&display=swap');
   *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
@@ -948,13 +971,12 @@ const STYLE = `
     100% { transform:translateX(-33.333%); }
   }
 
-  /* Smooth scrollbar on mobile */
   ::-webkit-scrollbar { width:4px; height:4px; }
   ::-webkit-scrollbar-track { background:transparent; }
   ::-webkit-scrollbar-thumb { background:rgba(212,160,23,.3); border-radius:2px; }
 `;
 
-// APP ROOT
+//APP ROOT
 export default function ZuuraRacingApp() {
   const isMobile = useIsMobile();
   const [activePage,    setActivePage]    = useState("home");
